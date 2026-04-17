@@ -9,3 +9,18 @@
 
 > A microservices-based interview scheduling system built with 
 > Spring Boot, MySQL, Redis, Kafka and Docker.
+## Architecture
+
+```
+interview-scheduling-system/
+├── candidate-service/       # Manages candidate registration & profiles
+│   ├── src/
+│   └── pom.xml
+└── interview-service/       # Manages interview slots & scheduling
+    ├── src/
+    └── pom.xml
+```
+
+**Communication:** Services communicate via **Apache Kafka** for async events.
+**Caching:** Redis is used for fast data retrieval.
+**Database:** Each service has its own MySQL database (DB per service pattern).
